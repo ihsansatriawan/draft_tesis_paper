@@ -127,12 +127,12 @@
 % *** GRAPHICS RELATED PACKAGES ***
 %
 \ifCLASSINFOpdf
-  % \usepackage[pdftex]{graphicx}
+  \usepackage[pdftex]{graphicx}
   % declare the path(s) where your graphic files are
-  % \graphicspath{{../pdf/}{../jpeg/}}
+  \graphicspath{{../pdf/}{../jpeg/}}
   % and their extensions so you won't have to specify these with
   % every instance of \includegraphics
-  % \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+  \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
 \else
   % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
   % will default to the driver specified in the system graphics.cfg if no
@@ -349,6 +349,9 @@
 
 
 \begin{document}
+
+
+
 %
 % paper title
 % can use linebreaks \\ within to get better formatting as desired
@@ -370,37 +373,6 @@ Institute of Technology Bandung\\
 Bandung, Indonesia\\
 Putri[at]informatika.org}}
 
-% conference papers do not typically use \thanks and this command
-% is locked out in conference mode. If really needed, such as for
-% the acknowledgment of grants, issue a \IEEEoverridecommandlockouts
-% after \documentclass
-
-% for over three affiliations, or if they all won't fit within the width
-% of the page, use this alternative format:
-% 
-%\author{\IEEEauthorblockN{Michael Shell\IEEEauthorrefmark{1},
-%Homer Simpson\IEEEauthorrefmark{2},
-%James Kirk\IEEEauthorrefmark{3}, 
-%Montgomery Scott\IEEEauthorrefmark{3} and
-%Eldon Tyrell\IEEEauthorrefmark{4}}
-%\IEEEauthorblockA{\IEEEauthorrefmark{1}School of Electrical and Computer Engineering\\
-%Georgia Institute of Technology,
-%Atlanta, Georgia 30332--0250\\ Email: see http://www.michaelshell.org/contact.html}
-%\IEEEauthorblockA{\IEEEauthorrefmark{2}Twentieth Century Fox, Springfield, USA\\
-%Email: homer@thesimpsons.com}
-%\IEEEauthorblockA{\IEEEauthorrefmark{3}Starfleet Academy, San Francisco, California 96678-2391\\
-%Telephone: (800) 555--1212, Fax: (888) 555--1212}
-%\IEEEauthorblockA{\IEEEauthorrefmark{4}Tyrell Inc., 123 Replicant Street, Los Angeles, California 90210--4321}}
-
-
-
-
-% use for special paper notices
-%\IEEEspecialpapernotice{(Invited Paper)}
-
-
-
-
 % make the title area
 \maketitle
 
@@ -417,7 +389,7 @@ Customer segmentation become one of  the ways for a company to be able to provid
 % math in the abstract anyway.
 
 \begin{IEEEkeywords}
-Customer Segmentation, Community Detection
+Data Mining, Clustering, Customer Segmentation, Community Detection
 \end{IEEEkeywords}
 
 
@@ -436,21 +408,26 @@ Customer Segmentation, Community Detection
 
 
 \section{Introduction}
-% no \IEEEPARstart
-This demo file is intended to serve as a ``starter file''
-for IEEE conference papers produced under \LaTeX\ using
-IEEEtran.cls version 1.7 and later.
-% You must have at least 2 lines in the paragraph with the drop letter
-% (should never be an issue)
-I wish you the best of success.
+E-commerce merupakan salah satu sektor perdagangan yang sedang berkembang pesat.
+Menurut riset yang dilakukan oleh perusahaan konsultan A.T. Kearney pada tahun 2015, menunjukkan bahwa Indonesia memiliki potensi pasar online antara 25 - 30 milyar dollar.
 
-\subsection{Subsection Heading Here}
-Subsection text here.
+\begin{figure}[h]
+\centering
+\includegraphics[width=\columnwidth]{figure/marketpotency}
+\caption{ASEAN's Market Potency}
+\label{market_potency}
+\end{figure}
 
+Dengan besarnya nilai potensi pasar online di Indonesia, tidak aneh jika begitu banyaknya perusahaan di ranah e-commerce, seperti Tokopedia, Bukalapak, Hijup, MatahariMall, dll.
+Hal tersebut mengakibatkan persaingan yang terjadi begitu kompetitif, sehingga membuat perusahaan harus dapat memberikan pelayanan yang lebih baik dibandingkan yang lain. Segmentasi pelanggan merupakan salah satu cara yang dapat dilakukan oleh perusahaan dalam rangka memahami perilaku pelanggannya sehingga dapat meningkatkan pelayanan yang sudah ada.
 
-\subsubsection{Subsubsection Heading Here}
-Subsubsection text here.
+Salah satu teknik yang dapat digunakan untuk memproses data yang dimiliki perusahaan untuk menghasilkan segmentasi pelanggan adalah data mining. Data mining merupakan teknik untuk menemukan pola dari data dan mendapatkan informasi yang berguna.
 
+Clustering merupakan salah satu metode data mining untuk mengelompokkan objek berdasarkan karakteristik yang dimiliki. Dengan demikian clustering dapat dimanfaatkan perusahaan untuk melakukan segmentasi pelanggan, dengan melakukan pengelompokkan pelanggan berdasarkan karakteristik tertentu seperti demografi, pola pembelian, dll.
+
+Deteksi komunitas menggunakan pendekatan graf dalam melakukan pengelompokkan pelanggan. Proses pengelompokkan pelanggan pada deteksi komunitas berdasarkan sekumpulan simpul dengan hubungan didalam kelompok yang erat dan hubungan yang jarang di antara kelompok.
+
+Pada penelitian ini, kami sudah melakukan pendekatan lain, yakni melakukan integrasi proses deteksi komunitas dan clustering dalam menghasilkan segmentasi pelanggan. Pendekatan ini dilakukan dengan melakukan pengelompokkan pelanggan berdasarkan pola interaksi yang terjadi antar pelanggan, hal ini untuk menemukan komunitas yang terjadi di pelanggan. Pelanggan yang telah terdeteksi komunitas nya menjadi masukan proses clustering untuk menemukan segmen nya masing-masing, nilai RFM menjadi nilai dasar pembentukan segmen untuk setiap pelanggan.
 
 % An example of a floating figure using the graphicx package.
 % Note that \label must occur AFTER (or within) \caption.
@@ -537,7 +514,10 @@ Subsubsection text here.
 
 
 \section{Related Work}
-\section{Customer Segmentation}
+Terdapat penelitian yang mengangkat topik segmentasi pelanggan
+
+\section{Methodology}
+\section{Experimental Result}
 \section{Conclusion}
 The conclusion goes here.
 
