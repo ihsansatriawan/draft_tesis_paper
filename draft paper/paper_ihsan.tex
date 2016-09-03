@@ -389,7 +389,7 @@ Customer segmentation become one of  the ways for a company to be able to provid
 % math in the abstract anyway.
 
 \begin{IEEEkeywords}
-Data Mining, Clustering, Customer Segmentation, Community Detection
+Clustering, Customer Segmentation, Community Detection
 \end{IEEEkeywords}
 
 
@@ -408,8 +408,8 @@ Data Mining, Clustering, Customer Segmentation, Community Detection
 
 
 \section{Introduction}
-E-commerce merupakan salah satu sektor perdagangan yang sedang berkembang pesat.
-Menurut riset yang dilakukan oleh perusahaan konsultan A.T. Kearney pada tahun 2015, menunjukkan bahwa Indonesia memiliki potensi pasar online antara 25 - 30 milyar dollar.
+E-commerce is one of the sectors in trading which is rapidly growing. Research by consulting firm A.T. Kearney in 2015, showed that Indonesia had potential in E-commerce between USD
+25 - 30 billion.
 
 \begin{figure}[h]
 \centering
@@ -418,105 +418,20 @@ Menurut riset yang dilakukan oleh perusahaan konsultan A.T. Kearney pada tahun 2
 \label{market_potency}
 \end{figure}
 
-Dengan besarnya nilai potensi pasar online di Indonesia, tidak aneh jika begitu banyaknya perusahaan di ranah e-commerce, seperti Tokopedia, Bukalapak, Hijup, MatahariMall, dll.
-Hal tersebut mengakibatkan persaingan yang terjadi begitu kompetitif, sehingga membuat perusahaan harus dapat memberikan pelayanan yang lebih baik dibandingkan yang lain. Segmentasi pelanggan merupakan salah satu cara yang dapat dilakukan oleh perusahaan dalam rangka memahami perilaku pelanggannya sehingga dapat meningkatkan pelayanan yang sudah ada.
+Based on those potential value, Indonesia has many E-commerce companies such as Tokopedia, Bukalapak, Hijup, MatahaMall, etc. This condition make every company must give better service than other. Customer segmentation is one of the way which help companies in understanding customer behavior so that service for the customer can be better.
 
-Salah satu teknik yang dapat digunakan untuk memproses data yang dimiliki perusahaan untuk menghasilkan segmentasi pelanggan adalah data mining. Data mining merupakan teknik untuk menemukan pola dari data dan mendapatkan informasi yang berguna.
+Data mining can use by company to process data and get customer segmentation. Data mining is techniques for extracting pattern from the data so can get the insight from the data.
 
-Clustering merupakan salah satu metode data mining untuk mengelompokkan objek berdasarkan karakteristik yang dimiliki. Dengan demikian clustering dapat dimanfaatkan perusahaan untuk melakukan segmentasi pelanggan, dengan melakukan pengelompokkan pelanggan berdasarkan karakteristik tertentu seperti demografi, pola pembelian, dll.
+Clustering is one of the data mining technique to group objects based on characteristic. Therefore companies can use clustering to perform customer segmentation by grouping objects based on characteristic such as demography, buying patterns, etc.
 
-Deteksi komunitas menggunakan pendekatan graf dalam melakukan pengelompokkan pelanggan. Proses pengelompokkan pelanggan pada deteksi komunitas berdasarkan sekumpulan simpul dengan hubungan didalam kelompok yang erat dan hubungan yang jarang di antara kelompok.
+Community detection is to partition the set of network nodes into multiple groups such that the nodes within a group are connected densely, but connections between groups are sparse.
 
-Pada penelitian ini, kami sudah melakukan pendekatan lain, yakni melakukan integrasi proses deteksi komunitas dan clustering dalam menghasilkan segmentasi pelanggan. Pendekatan ini dilakukan dengan melakukan pengelompokkan pelanggan berdasarkan pola interaksi yang terjadi antar pelanggan, hal ini untuk menemukan komunitas yang terjadi di pelanggan. Pelanggan yang telah terdeteksi komunitas nya menjadi masukan proses clustering untuk menemukan segmen nya masing-masing, nilai RFM menjadi nilai dasar pembentukan segmen untuk setiap pelanggan.
-
-% An example of a floating figure using the graphicx package.
-% Note that \label must occur AFTER (or within) \caption.
-% For figures, \caption should occur after the \includegraphics.
-% Note that IEEEtran v1.7 and later has special internal code that
-% is designed to preserve the operation of \label within \caption
-% even when the captionsoff option is in effect. However, because
-% of issues like this, it may be the safest practice to put all your
-% \label just after \caption rather than within \caption{}.
-%
-% Reminder: the "draftcls" or "draftclsnofoot", not "draft", class
-% option should be used if it is desired that the figures are to be
-% displayed while in draft mode.
-%
-%\begin{figure}[!t]
-%\centering
-%\includegraphics[width=2.5in]{myfigure}
-% where an .eps filename suffix will be assumed under latex, 
-% and a .pdf suffix will be assumed for pdflatex; or what has been declared
-% via \DeclareGraphicsExtensions.
-%\caption{Simulation Results}
-%\label{fig_sim}
-%\end{figure}
-
-% Note that IEEE typically puts floats only at the top, even when this
-% results in a large percentage of a column being occupied by floats.
-
-
-% An example of a double column floating figure using two subfigures.
-% (The subfig.sty package must be loaded for this to work.)
-% The subfigure \label commands are set within each subfloat command, the
-% \label for the overall figure must come after \caption.
-% \hfil must be used as a separator to get equal spacing.
-% The subfigure.sty package works much the same way, except \subfigure is
-% used instead of \subfloat.
-%
-%\begin{figure*}[!t]
-%\centerline{\subfloat[Case I]\includegraphics[width=2.5in]{subfigcase1}%
-%\label{fig_first_case}}
-%\hfil
-%\subfloat[Case II]{\includegraphics[width=2.5in]{subfigcase2}%
-%\label{fig_second_case}}}
-%\caption{Simulation results}
-%\label{fig_sim}
-%\end{figure*}
-%
-% Note that often IEEE papers with subfigures do not employ subfigure
-% captions (using the optional argument to \subfloat), but instead will
-% reference/describe all of them (a), (b), etc., within the main caption.
-
-
-% An example of a floating table. Note that, for IEEE style tables, the 
-% \caption command should come BEFORE the table. Table text will default to
-% \footnotesize as IEEE normally uses this smaller font for tables.
-% The \label must come after \caption as always.
-%
-%\begin{table}[!t]
-%% increase table row spacing, adjust to taste
-%\renewcommand{\arraystretch}{1.3}
-% if using array.sty, it might be a good idea to tweak the value of
-% \extrarowheight as needed to properly center the text within the cells
-%\caption{An Example of a Table}
-%\label{table_example}
-%\centering
-%% Some packages, such as MDW tools, offer better commands for making tables
-%% than the plain LaTeX2e tabular which is used here.
-%\begin{tabular}{|c||c|}
-%\hline
-%One & Two\\
-%\hline
-%Three & Four\\
-%\hline
-%\end{tabular}
-%\end{table}
-
-
-% Note that IEEE does not put floats in the very first column - or typically
-% anywhere on the first page for that matter. Also, in-text middle ("here")
-% positioning is not used. Most IEEE journals/conferences use top floats
-% exclusively. Note that, LaTeX2e, unlike IEEE journals/conferences, places
-% footnotes above bottom floats. This can be corrected via the \fnbelowfloat
-% command of the stfloats package.
+In this research, we have use another approach, like integrated community detection and clustering to get customer segmentation. This approach applied by detect community based interaction pattern each customer and use clustering with RFM model to get segment from customer have community.
 
 
 
 \section{Related Work}
-Terdapat beberapa penelitian yang pernah dilakukan terkait segmentasi pelanggan. Segmentasi pelanggan menggunakan model RFM yang dikembangkan untuk mengukur loyalitas pelanggan, diteliti oleh Bunnak, Thammaboosadee, dan Kiattisin, mereka menggunakan algoritma K-Means dan Decision tree untuk segmentasi pelanggan[1]. Customer segmentation using decision tree to identify VIP customer in mobile communication industry by Zhang Yihua[2]. Terdapat beberapa penelitian terkait deteksi komunitas yang pernah dilakukan. The Girvan-Newman (GN) algorithm proposed by Girvan and Newman [3] exploits the concept of edge betweenness, which is a measure of the centrality and influence of an edge in a network. Deteksi komunitas pada graf berbobot berdasarkan data twitter menggunakan algoritma GN yang dilakukan oleh Mairisha [4]
-
-Berdasarkan penelitian yang sudah ada, masih belum ada penelitian yang membahas secara menyeluruh proses segmentasi pelanggan yang dilakukan dengan menambahkan informasi terkait komunitas yang terbentuk dari interaksi antar pelanggan
+There are some research about customer segmentation. Customer segmentation with RFM model for measure customer loyalty, proposed by Bunnak, Thammaboosadee, dan Kiattisin, they use K-Means and Decision tree to segmenting the customers[1]. Customer segmentation using decision tree to identify VIP customer in mobile communication industry by Zhang Yihua[2].There are some research about community detection. The Girvan-Newman (GN) algorithm proposed by Girvan and Newman [3] exploits the concept of edge betweenness, which is a measure of the centrality and influence of an edge in a network. Community detection in weighted graph based on twitter data use GN algorithm by Mairisha [4]. Based on all research, there is no research about customer segmentation with additional information about community based on customer interaction
 
 \section{Methodology}
 In this paper, we apply customer segmentation combine with community detection. The steps of the research process as shown in Fig. 2.
@@ -532,7 +447,7 @@ In this paper, we apply customer segmentation combine with community detection. 
 This step selects related dataset to be used in case study of customer segmentation and then pre-processes data which is an important step. Data preprocessing eliminates irrelevant data by some methods such as data integration, data transformation, and data reduction.
 
 \subsection{Customer Similarity}
-Pada tahap ini dilakukan proses pencarian kesamaan dari dua objek. pada penelitian kali ini menggunakan euclidean similarity yang merupakan ukuran kesamaan yang umum digunakan [5]. Nilai similarity antar objek ini yang menjadi nilai masukan pada tahap berikutnya.
+In this step, customer similarity is process to find similar from two object. In this research we use euclidean similarity which is common measure [5]. Similarity value from two object become input for next step.
 
 \begin{equation}
     \label{eq:euclidean_distance}
@@ -546,14 +461,14 @@ Pada tahap ini dilakukan proses pencarian kesamaan dari dua objek. pada peneliti
 \subsection{Community Detection by GN Algorithm}
 The GN algorithm is a divisive hierarchical clustering algorithm exploiting the concept of edge betweenness [3]. Three methods were proposed for the calculation of edge betweenness. Among them, the shortest-path method typically shows the best results. The edge betweenness of an edge is informally the number of shortest paths between pairs of nodes that pass through it. Since communities are loosely connected by a few “intergroup” edges, all shortest paths between different communities must pass through one of these few edges. Then, those edges connecting communities will have high edge betweenness. Thus, the communities are detected by eliminating such edges repeatedly.
 
-Untuk menentukan berapa banyak komunitas yang harus terbagi di dalam jaringan, digunakan sebuah pengukuran kualitas dari pembagian jaringan yang bernama modularity. Modularity mengukur tingkat penyimpangan jumlah sisi yang menghubungkan simpul-simpul dari komunitas di jaringan dari nilai rata-rata dalam jaringan acak dengan urutan tingkat simpul yang sama, equation (3) merupakan formula modularity GN [3].
+To decide how much community divide in networks, measure of quality of divide in networks, which  call the modularity. The modularity is, up to a multiplicative constant, the number of edges falling within groups minus the expected number in an equivalent network with edges placed at random, equation (3) show formula from modularity GN [3]
 
 \begin{equation}
 	\label{eq:modularity_GN}
     Q = \frac{1}{2m} \Sigma_{vw} [A_{vw} - \frac{(k_{v}k_{w})}{2m}] \sigma(c_{v}c_{w})
 \end{equation}
 
-Pembagian graf ke dalam komunitas yang baik berkorespondensi dengan nilai modularity yang besar, sebaliknya pembagian graf ke dalam komunitas yang buruk berkorespondensi dengan nilai modularity yang kecil. Modularity inilah yang akhirnya menjadi standar yang akurat dalam mengukur kualitas pembagian struktur komunitas pada graf (deteksi komunitas). Perhitungan modularity dilakukan di setiap pembentukan komunitas baru. Jika terbentuk x komunitas, maka terdapat x nilai modularity. Jumlah komunitas yang memiliki nilai modularity tertinggi berarti pembentukan komunitas tersebut sesuai dengan kenyataan yang sebenarnya
+Good community detection on graph have big modularity score, otherwise poor community detection have small modularity score. Modularity score calculate on every create new community. If formed x community, than there is x modularity score. The number of communities that have the highest modularity score indicates the formation of the community in accordance with the actual reality.
 
 
 \subsection{Customer RFM Model}
@@ -564,7 +479,7 @@ period and Monitary (M) is the amount of money used to
 purchases in during a spesific period. The RFM model usually
 used in retail company. For example the RFM value of
 customer in a supermarket, R is the latest time of a customer
-purchase, F is how many times a customer made a purchase, and M is berapa banyak uang yang sudah pelanggan keluarkan [6]. Untuk nilai RFM setiap pelanggan, akan dilakukan proses normalisasi menjadi nilai dengan rentang 1-5. Each RFM value customer become normalization process with range value [1-5] Fig 3 is example of RFM Model before transformation and Fig 4 example of RFM Model after transformation
+purchase, F is how many times a customer made a purchase, and M is how much money that customer have spent [6]. The process of normalization is done for the value of RFM with a range of 1-5 for each customer. Fig 3 is example of RFM Model before transformation and Fig 4 example of RFM Model after transformation
 
 \begin{figure}[h]
 \centering
@@ -581,7 +496,7 @@ purchase, F is how many times a customer made a purchase, and M is berapa banyak
 \end{figure}
 
 \subsection{Customer Segment by K-Means}
-In this step, customer segment is applied by use clustering K-Means algorithm for find segment each customer. K-Means Clustering is the simplest clustering algorithm. K-means grouped the objects into K clusters. K is the number of clusters that will be generated, defined by the user. The quality of cluster is measured by silhouete. Silhouette can be used to measure the separation distance between the resulting clusters. This measure has a range of [-1, 1]. Step in K-Means Clustering Algorithm is :
+In this step, customer segment is applied by use clustering K-Means algorithm to` find segment each customer. K-Means Clustering is the simplest clustering algorithm. K-means grouped the objects into K clusters. K is the number of clusters that will be generated, defined by the user. The quality of cluster is measured by silhouete. Silhouette can be used to measure the separation distance between the resulting clusters. This measure has a range of [-1, 1]. Step in K-Means Clustering Algorithm is :
 \begin{enumerate}
 	\item Decide the number of clusters k
 	\item Initialize the center of the clusters
@@ -658,7 +573,7 @@ Customer similarity become input for community detection process based on GN Alg
 \label{graph_customer}
 \end{figure}
 
-Untuk setiap iterasi proses deteksi komunitas, modularity menjadi nilai ukur kualitas dari jumlah komunitas yang terbentuk. Table III show modularity score untuk setiap jumlah komunitas yang terbentuk. Fig 6 show graph result community detection
+For each community detection process iteration, modularity score become quality measure. Table III show modularity score for each number of community formed. Fig 6 show graph result community detection
 
 \begin{table}[h]
 \renewcommand{\arraystretch}{1.3}
@@ -693,7 +608,7 @@ Untuk setiap iterasi proses deteksi komunitas, modularity menjadi nilai ukur kua
 This step uses data obtained in the previous step applied with the defined the scales of R, F, M attributes as described in the previous section.
 
 \subsection{Customer Segment by K-Means}
-In this process, customer are classified by K-Means based on RFM value and use K range of [3-8]. With silhouete score, K cluster with best silhouete score yang dipilih untuk menjadi jumlah segment yang dibentuk. Table IV show silhouete score each K cluster.
+In this process, customer are classified by K-Means based on RFM value and use K range of [3-8]. With silhouete score, K cluster with best silhouete score is choosen to become number of segments formed. Table IV show silhouete score each K cluster.
 
 \begin{table}[h]
 \renewcommand{\arraystretch}{1.3}
@@ -719,7 +634,7 @@ In this process, customer are classified by K-Means based on RFM value and use K
 \end{tabular}
 \end{table}
 
-6 Cluster have best silhouete score, than customer segment divided into 6 segment. Centroid each cluster digunakan untuk mengetahui karakteristik setiap cluster yang terbentuk. Table V show centroid for 6 cluster. 
+6 Cluster have best silhouete score, than customer segment divided into 6 segment. Centroid each cluster is used to know characteristic for each cluster formed. Table V show centroid for 6 cluster. 
 
 \begin{table}[h]
 \renewcommand{\arraystretch}{1.3}
@@ -765,15 +680,17 @@ In this process, customer are classified by K-Means based on RFM value and use K
 \end{tabular}
 \end{table}
 
-selain berhasil mengelompokkan pelanggan kedalam segmen nya masing-masing terdapat juga informasi terkait komunitas untuk setiap anggota segment yang terbentuk. Informasi tersebut dapat membantu e-commerce dalam menyusun strategi pemasaran untuk setiap segmen, karena dengan memiliki informasi komunitas setiap anggota segmen tersebut, maka dapat menyusun strategi yang lebih spesifik.
+In addition to successful classify customers into each segments, there is also relevant information for every member of the community formed segment. Such information can help e-commerce in developing marketing strategies for each segment, because that information can develop more specific strategies.
+
+
 
 \subsection{Analysis Customer Segment}
-Dengan mengetahui karakteristik setiap segment yang ditunjukkan Table VII and result customer segmentation show on Table VI, perusahaan dapat memberikan penanganan yang berbeda kepada pelanggan pada segment tertentu. Misalnya pada Loyal Customer Segment, terdapat beberapa anggota segment tersebut yang tergabung dalam komunitas yang dominan anggota komunitas nya tergabung didalam Profit Customer Segment, sehingga perusahaan dapat memberikan penanganan yang berbeda untuk pelanggan tersebut untuk dapat meningkatkan transaksi, sehingga dapat meningkatkan segment, dari Loyal Customer Segment into Profit Customer Segment.
+By knowing the characteristics of each segment is shown in Table VII and customer segmentation result show on Table VI, the company can provide different treatment to certain customers in the segment. For example in the Loyal Customer Segment, there are some members of that segment is incorporated in the dominant community of its members incorporated herein Profit Customer Segment, so the company can provide different treatment for these customers to be able to increase transactions, thus increasing segment type, of Loyal Customer Segment into Profit Customer Segment.
 
 \begin{table}[h]
 \renewcommand{\arraystretch}{1.3}
-\caption{Centroid Cluster}
-\label{tab:centroid_cluster}
+\caption{Character Segment}
+\label{tab:Character_segment}
 \centering
 \begin{tabular}{c|c|c|c|c}
     \hline
@@ -795,7 +712,7 @@ Dengan mengetahui karakteristik setiap segment yang ditunjukkan Table VII and re
 \end{table}
 
 \section{Conclusion}
-This research attemps to try combine community detection and clustering process applying to customer segmentation. This research take RFM model and K-Means Clustering, and use GN algorithm for community detection then the result can be identified characteristics each segment with knowledge about community each segment. It is will be useful for company untuk menyusun strategi yang lebih spesifik.
+This research attemps to try combine community detection and clustering process applying to customer segmentation. This research take RFM model and K-Means Clustering, and use GN algorithm for community detection then the result can be identified characteristics each segment with knowledge about community each segment. It is useful for company to develope specific strategic marketing.
 
 
 
