@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2016.8.31)  2 SEP 2016 13:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2016.8.31)  3 SEP 2016 21:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -124,7 +124,11 @@ Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 \Gin@req@height=\dimen117
 \Gin@req@width=\dimen118
 )
-(./paper_ihsan.aux)
+(./paper_ihsan.aux
+
+LaTeX Warning: Label `tab:centroid_cluster' multiply defined.
+
+)
 \openout1 = `paper_ihsan.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 351.
@@ -139,8 +143,7 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 351.
 LaTeX Font Info:    ... okay on input line 351.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 351.
 LaTeX Font Info:    ... okay on input line 351.
-
-(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
+ (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count92
 \scratchdimen=\dimen119
@@ -211,12 +214,81 @@ Underfull \hbox (badness 5175) in paragraph at lines 428--429
 \OT1/ptm/m/n/10 pokkan pelang-gan pada de-teksi ko-mu-ni-tas berdasarkan
  []
 
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
+
+
+ <./figure/marketpotency.png>] <figure/overall_methodology.png, id=10, 796.9775
+pt x 837.1275pt>
+File: figure/overall_methodology.png Graphic file (type png)
+
+<use figure/overall_methodology.png>
+Package pdftex.def Info: figure/overall_methodology.png used on input line 526.
+
+(pdftex.def)             Requested size: 253.04987pt x 265.79141pt.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 533.
+(Font)              <7> on input line 537.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 533.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 533.
+(Font)              <5> on input line 537.
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ú in font ptmr7t!
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ù in font ptmr7t!
+
+<figure/rfm_model.png, id=11, 462.97969pt x 276.28218pt>
+File: figure/rfm_model.png Graphic file (type png)
+
+<use figure/rfm_model.png>
+Package pdftex.def Info: figure/rfm_model.png used on input line 571.
+(pdftex.def)             Requested size: 143.03476pt x 85.3557pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<figure/rfm_model_after.png, id=13, 387.69844pt x 274.77657pt>
+File: figure/rfm_model_after.png Graphic file (type png)
+
+<use figure/rfm_model_after.png>
+Package pdftex.def Info: figure/rfm_model_after.png used on input line 578.
+(pdftex.def)             Requested size: 120.43373pt x 85.35594pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[2 <./figure/overall_methodology.png (PNG copy)>]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<figure/graph_awal.png, id=24, 593.21625pt x 563.10374pt>
+File: figure/graph_awal.png Graphic file (type png)
+
+<use figure/graph_awal.png>
+Package pdftex.def Info: figure/graph_awal.png used on input line 656.
+(pdftex.def)             Requested size: 89.91997pt x 85.3555pt.
+
+<figure/graph_deteksi.png, id=25, 592.2125pt x 563.10374pt>
+File: figure/graph_deteksi.png Graphic file (type png)
+
+<use figure/graph_deteksi.png>
+Package pdftex.def Info: figure/graph_deteksi.png used on input line 687.
+(pdftex.def)             Requested size: 89.76782pt x 85.3555pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[3 <./figure/rfm_model.png> <./figure/rfm_model_after.png> <./figure/graph_awal
+.png>]
+Underfull \hbox (badness 1655) in paragraph at lines 771--772
+\OT1/ptm/m/n/10 seg-ment terse-but yang ter-gabung dalam ko-mu-ni-tas yang
+ []
+
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ô in font ptmr7t!
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -228,27 +300,33 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
+[4 <./figure/graph_deteksi.png>] (./paper_ihsan.aux)
 
+LaTeX Warning: There were multiply-defined labels.
 
- <./figure/marketpotency.png>] (./paper_ihsan.aux) ) 
+ ) 
 Here is how much of TeX's memory you used:
- 2181 strings out of 493105
- 34781 string characters out of 6137072
- 97882 words of memory out of 5000000
- 5640 multiletter control sequences out of 15000+600000
- 36514 words of font info for 70 fonts, out of 8000000 for 9000
+ 2214 strings out of 493105
+ 35736 string characters out of 6137072
+ 102055 words of memory out of 5000000
+ 5673 multiletter control sequences out of 15000+600000
+ 35809 words of font info for 65 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
- 37i,6n,23p,767b,212s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-d
-ist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/urw/
-times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.p
-fb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on paper_ihsan.pdf (1 page, 85089 bytes).
+ 37i,7n,23p,836b,219s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8
+a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on paper_ihsan.pdf (4 pages, 417912 bytes).
 PDF statistics:
- 26 PDF objects out of 1000 (max. 8388607)
- 17 compressed objects within 1 object stream
+ 67 PDF objects out of 1000 (max. 8388607)
+ 42 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 
