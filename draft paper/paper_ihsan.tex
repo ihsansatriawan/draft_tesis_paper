@@ -355,20 +355,20 @@
 %
 % paper title
 % can use linebreaks \\ within to get better formatting as desired
-\title{Integrated Girvan-Newman and K-means Algorithm for Customer Segmentation in E-commerce}
+\title{Customer Community Identification from Community Detection Graph in E-Commerce}
 
 
 % author names and affiliations
 % use a multiple column layout for up to three different
 % affiliations
 \author{\IEEEauthorblockN{Ihsan Satriawan}
-\IEEEauthorblockA{School of Electronic Egineering and Informatics\\
+\IEEEauthorblockA{School of Electronic Engineering and Informatics\\
 Institute of Technology Bandung\\
 Bandung, Indonesia\\
 ihsan.satriawan.20[at]gmail.com}
 \and
 \IEEEauthorblockN{G.A. Putri Saptawati}
-\IEEEauthorblockA{School of Electronic Egineering and Informatics\\
+\IEEEauthorblockA{School of Electronic Engineering and Informatics\\
 Institute of Technology Bandung\\
 Bandung, Indonesia\\
 putri[at]informatika.org}}
@@ -389,7 +389,7 @@ Customer segmentation become one of  the ways for a company to be able to provid
 % math in the abstract anyway.
 
 \begin{IEEEkeywords}
-Clustering, Customer Segmentation, Community Detection
+Community Detection, Graph, Community Identification
 \end{IEEEkeywords}
 
 
@@ -418,23 +418,26 @@ E-commerce is one of the sectors in trading which is rapidly growing. Research b
 \label{market_potency}
 \end{figure}
 
-Based on those potential value, Indonesia has many E-commerce companies such as Tokopedia, Bukalapak, Hijup, MatahaMall, etc. This condition make every company must give better service than other. Customer segmentation is one of the way which help companies in understanding customer behavior so that service for the customer can be better.
+Based on those potential value, no wonder if Indonesia has many E-commerce companies like Tokopedia, Bukalapak, Hijup, MatahaMall, etc. This condition make every company must give better service than other and make their customer satisfied if want to survive. Company must be able to understand their customer behavior when bought product and arrange marketing strategy based on that information \cite{Tsiptsis}.
 
-Data mining can use by company to process data and get customer segmentation. Data mining is techniques for extracting pattern from the data so can get the insight from the data.
+Data mining is crucial for extracting and identifying useful information from a large amount of data \cite{Ahmed}. E-Commerce company operate databases in a long way, such that all transactions are stored in chronological order. A record-of-transaction database typically contains the transaction date and the products bought in the course of a given transaction. Usually, each record also contains an customer ID, particularly when the purchase was made using a credit card or a frequentbuyer card \cite{Ahmed}.
 
-Clustering is one of the data mining technique to group objects based on characteristic. Therefore companies can use clustering to perform customer segmentation by grouping objects based on characteristic such as demography, buying patterns, etc.
+Networks have become ubiquitous as data from many different disciplines can be naturally mapped to graph structures \cite{Malliaros}. An interesting feature that real networks present is the clustering or community structure property, under which the graph topology is organized into modules commonly called community detection. Informally, Community detection is to partition the set of network nodes into multiple groups such that the nodes within a group are connected densely, but connections between groups are sparse \cite{Malliaros}
 
-Community detection is to partition the set of network nodes into multiple groups such that the nodes within a group are connected densely, but connections between groups are sparse.
-
-In this research, we have use another approach, like integrated community detection and clustering to get customer segmentation. This approach applied by detect community based interaction pattern each customer and use clustering with RFM model to get segment from customer have community.
+In this research, we have use another approach to extract useful information from data e-commerce. We modelled data e-commerce as graph and apply community detection method to get customer community and extract useful information from community.
 
 
 
 \section{Related Work}
-There are some research about customer segmentation. Customer segmentation with RFM model for measure customer loyalty, proposed by Bunnak, Thammaboosadee, dan Kiattisin, they use K-Means and Decision tree to segmenting the customers[1]. Customer segmentation using decision tree to identify VIP customer in mobile communication industry by Zhang Yihua[2].There are some research about community detection. The Girvan-Newman (GN) algorithm proposed by Girvan and Newman [3] exploits the concept of edge betweenness, which is a measure of the centrality and influence of an edge in a network. Community detection in weighted graph based on twitter data use GN algorithm by Mairisha [4]. Based on all research, there is no research about customer segmentation with additional information about community based on customer interaction
+There are some research about community detection. The Girvan-Newman (GN) algorithm proposed by Girvan and Newman \cite{Newman} exploits the concept of edge betweenness, which is a measure of the centrality and influence of an edge in a network. Community detection in weighted graph based on twitter data use GN algorithm by Mairisha \cite{Mairisha}. Based on the time complexity of some of the methods for large networks, a detection method with a small time complexity was required. The best method that was found was the detection method first proposed by Newman and Girvan \cite{Kameyama}
+
+However, community in networks depends on what we define relation each node. We still need to identify each community. In order to perform this task, another procedure is required, a different property must be used to identify the communities. In many cases, a possible choice is to use the semantics of a community as a unique property. For example, with the TF-IDF technique apply by Uchida et al \cite{Uchida}, an attempt was made to characterize the communities detected in a blogosphere. Specific topics discussed in each community were found, and it was shown that the communities can be identified by such specific topics. Thus, it can be considered that semantics is a useful property for identifying a community
+
+Research by Uchida et all, use TF-IDF to identify communities detected without apply feature reduction and term weighted. it's potential error in choose term to identify topic in entries/document \cite{Dai}. Feature reduction and term weighted is part of feature selection. Feature selection becomes very important, because it features the words chosen results reduction features and patterns formed determine the precision of word weighting results grouping news \cite{Dai,DaiX}
+
 
 \section{Methodology}
-In this paper, we apply customer segmentation combine with community detection. The steps of the research process as shown in Fig. 2.
+In this research, we apply Term Frequency-Inverse Document Frequency (TF-IDF) and Term Contribution (TC) to identify customer community. The steps of the research process as shown in figure \ref{overall_methodology}
 
 \begin{figure}[h]
 \centering
@@ -443,84 +446,8 @@ In this paper, we apply customer segmentation combine with community detection. 
 \label{overall_methodology}
 \end{figure}
 
-\subsection{Data and Data Preprocessing}
-This step selects related dataset to be used in case study of customer segmentation and then pre-processes data which is an important step. Data preprocessing eliminates irrelevant data by some methods such as data integration, data transformation, and data reduction.
-
-\subsection{Customer Similarity}
-In this step, customer similarity is process to find similar from two object. In this research we use euclidean similarity which is common measure [5]. Similarity value from two object become input for next step.
-
-\begin{equation}
-    \label{eq:euclidean_distance}
-    d( p1,p2 ) = \sqrt{ \Sigma( s_{p1}-s_{p2})^{2} }
-\end{equation}
-\begin{equation}
-	\label{eq:euclidean_similarity}
-    \frac{1}{1 + d(p1,p2)}
-\end{equation}
-
-\subsection{Community Detection by GN Algorithm}
-The GN algorithm is a divisive hierarchical clustering algorithm exploiting the concept of edge betweenness [3]. Three methods were proposed for the calculation of edge betweenness. Among them, the shortest-path method typically shows the best results. The edge betweenness of an edge is informally the number of shortest paths between pairs of nodes that pass through it. Since communities are loosely connected by a few “intergroup” edges, all shortest paths between different communities must pass through one of these few edges. Then, those edges connecting communities will have high edge betweenness. Thus, the communities are detected by eliminating such edges repeatedly.
-
-To decide how much community divide in networks, measure of quality of divide in networks, which  call the modularity. The modularity is, up to a multiplicative constant, the number of edges falling within groups minus the expected number in an equivalent network with edges placed at random, equation (3) show formula from modularity GN [3]
-
-\begin{equation}
-	\label{eq:modularity_GN}
-    Q = \frac{1}{2m} \Sigma_{vw} [A_{vw} - \frac{(k_{v}k_{w})}{2m}] \sigma(c_{v}c_{w})
-\end{equation}
-
-Good community detection on graph have big modularity score, otherwise poor community detection have small modularity score. Modularity score calculate on every create new community. If formed x community, than there is x modularity score. The number of communities that have the highest modularity score indicates the formation of the community in accordance with the actual reality.
-
-
-\subsection{Customer RFM Model}
-In this step, Customer RFM Model is applied by defining the scaling of R, F, and M variable. The
-variable is : Recency (R) is customer's last purchase,
-Frequency (F) is the total number of purchase during a spesific
-period and Monitary (M) is the amount of money used to
-purchases in during a spesific period. The RFM model usually
-used in retail company. For example the RFM value of
-customer in a supermarket, R is the latest time of a customer
-purchase, F is how many times a customer made a purchase, and M is how much money that customer have spent [6]. The process of normalization is done for the value of RFM with a range of 1-5 for each customer. Fig 3 is example of RFM Model before transformation and Fig 4 example of RFM Model after transformation
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=\columnwidth, height=3cm,keepaspectratio]{figure/rfm_model}
-\caption{RFM Model before Transformation}
-\label{rfm_model}
-\end{figure}
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=\columnwidth, height=3cm,keepaspectratio]{figure/rfm_model_after}
-\caption{RFM Model after Transformation}
-\label{rfm_model_after}
-\end{figure}
-
-\subsection{Customer Segment by K-Means}
-In this step, customer segment is applied by use clustering K-Means algorithm to` find segment each customer. K-Means Clustering is the simplest clustering algorithm. K-means grouped the objects into K clusters. K is the number of clusters that will be generated, defined by the user. The quality of cluster is measured by silhouete. Silhouette can be used to measure the separation distance between the resulting clusters. This measure has a range of [-1, 1]. Step in K-Means Clustering Algorithm is :
-\begin{enumerate}
-	\item Decide the number of clusters k
-	\item Initialize the center of the clusters
-	\item Attribute the closest cluster to each data point
-	\item Set the position of each cluster to the mean of all data points belonging to that cluster
-	\item Repeat steps 3-4 until convergence
-\end{enumerate}
-
-
-\subsection{Analysis Customer Segment}
-This step refers to the representation and applying the obtained model to the real usage, which will be discussed in the next section.
-
-\section{Experimental Result}
-As described in the previous section, we will organize the experiment results follows with the step of methodology in the previous section.
-
-\subsection{Data and Data Preprocessing}
-This research used database from one e-commerce muslimah in Indonesia for last 5 years (2011-2016). The database contains two parts as follows:
-
-\begin{itemize}
-	\item Data Interaction 88,103 records
-	\item Transaction of customer purchases are total 128,628 records
-\end{itemize}
-
-After making a selection of data, the records which include missing values and inaccurate values are removed, and eliminated the redundant attributes. Next, the data is transformed into appropriate formats. Finally, the dataset which are characterized by the following three fields: ID-Sender, ID-Receiver, Total Frequency Interaction
+\subsection{Data Preprocessing}
+This step is selects related data that we acquired from e-commerce to be used in case study of discovering customer community and then pre-processes data which is an important step. Data preprocessing eliminates irrelevant data by some methods such as data integration, data transformation, and data reduction. Prepared data is shown at Table \ref{tab:sample_data_preprocessing_result}
 
 \begin{table}[h]
 \renewcommand{\arraystretch}{1.3}
@@ -540,151 +467,85 @@ After making a selection of data, the records which include missing values and i
 \end{tabular}
 \end{table}
 
-\subsection{Customer Similarity}
-In this steps applied formula (2) for data preprocessing result to get similarity each customer based on interaction, table II show sample customer similarity
+\subsection{Graph Modeling}
+We construct a network regarding customers as nodes and interaction each customers (column "Total Frequency Interaction" in Table \ref{tab:sample_data_preprocessing_result}) as undirected edges ,although interaction is directed, we consider the network undirected, making each edge bidirectional. For make each edge bidirectional, we apply symmetrizing, equation \ref{eq:symmetrizing} show that formula \cite{Gopalakrishnan}
 
-\begin{table}[h]
-\renewcommand{\arraystretch}{1.3}
-\caption{Sample Customer Similarity}
-\label{tab:sample_customer_similarity}
-\centering
-\begin{tabular}{c|c|c}
-    \hline
-    ID-Customer  &  ID-Customer & Similarity\\
-    \hline
-    38 & 28996 & 0.333333333333\\
-    \hline
-    21061 & 48249 & 0.0526315789474\\
-    \hline
-    26797 & 39713 & 0.5\\
-    \hline
-    33892 & 86097 & 0.333333333333\\
-    \hline
-\end{tabular}
-\end{table}
-
-\subsection{Community Detection by GN Algorithm}
-Customer similarity become input for community detection process based on GN Algorithm. Fig 5 show graph based on customer interaction
+\begin{equation}
+	\label{eq:symmetrizing}
+	\bar{A} = (A + A^T)/2
+\end{equation}
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=\columnwidth, height=3cm,keepaspectratio]{figure/graph_awal}
-\caption{Graph Customer Interaction}
-\label{graph_customer}
+\includegraphics[width=\columnwidth, height=3cm,keepaspectratio]{figure/bidirectional_edge}
+\caption{Example of a weighted directed network}
+\label{bidirectional_edge}
 \end{figure}
-
-For each community detection process iteration, modularity score become quality measure. Table III show modularity score for each number of community formed. Fig 6 show graph result community detection
-
-\begin{table}[h]
-\renewcommand{\arraystretch}{1.3}
-\caption{Modularity Score}
-\label{tab:modularity_score}
-\centering
-\begin{tabular}{c|c}
-    \hline
-    Modularity Score  &  Number of Communities\\
-    \hline
-    0.938736 & 41\\
-    \hline
-    0.940306 & 42\\
-    \hline
-    0.844997 & 47\\
-    \hline
-    0.796996 & 51\\
-    \hline
-    0.707456 & 56\\
-    \hline
-\end{tabular}
-\end{table}
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=\columnwidth, height=3cm,keepaspectratio]{figure/graph_deteksi}
-\caption{Graph Result Community Detection}
-\label{graph_community_detection}
+\includegraphics[width=\columnwidth, height=3cm,keepaspectratio]{figure/undirected_edge}
+\caption{Symmetrized version of the weighted directed network shown in Fig \ref{bidirectional_edge}}
+\label{undirected_edge}
 \end{figure}
 
-\subsection{Customer RFM Model}
-This step uses data obtained in the previous step applied with the defined the scales of R, F, M attributes as described in the previous section.
+\subsection{Community Detection}
+The GN algorithm is a divisive hierarchical clustering algorithm exploiting the concept of edge betweenness \cite{Newman}. Three methods were proposed for the calculation of edge betweenness. Among them, the shortest-path method typically shows the best results. The edge betweenness of an edge is informally the number of shortest paths between pairs of nodes that pass through it. Since communities are loosely connected by a few “intergroup” edges, all shortest paths between different communities must pass through one of these few edges. Then, those edges connecting communities will have high edge betweenness. Thus, the communities are detected by eliminating such edges repeatedly.
 
-\subsection{Customer Segment by K-Means}
-In this process, customer are classified by K-Means based on RFM value and use K range of [3-8]. With silhouete score, K cluster with best silhouete score is choosen to become number of segments formed. Table IV show silhouete score each K cluster.
+To decide how much community divide in networks, measure of quality of divide in networks, which  call the modularity. The modularity is, up to a multiplicative constant, the number of edges falling within groups minus the expected number in an equivalent network with edges placed at random, equation \ref{eq:modularity_GN} show formula from modularity GN \cite{Newman}
 
-\begin{table}[h]
-\renewcommand{\arraystretch}{1.3}
-\caption{Result K-Means with Silhouete Score}
-\label{tab:result_k-means}
+\begin{equation}
+	\label{eq:modularity_GN}
+    Q = \frac{1}{2m} \Sigma_{vw} [A_{vw} - \frac{(k_{v}k_{w})}{2m}] \sigma(c_{v}c_{w})
+\end{equation}
+
+Good community detection on graph have big modularity score, otherwise poor community detection have small modularity score. Modularity score calculate on every create new community. If formed x community, than there is x modularity score. The number of communities that have the highest modularity score indicates the formation of the community in accordance with the actual reality.
+\subsection{Identify Community}
+Inspired from use TF-IDF to summarization document and TC and Z-score as feature reduction in domain text mining \cite{Munggaran}, we apply this concept to identify customer community. In our case, we associate term as product and document as community and customer.
+
+\begin{figure}[h]
 \centering
-\begin{tabular}{c|c}
-    \hline
-    Number of Cluster & Silhouete Score\\
-    \hline
-    3 & 0.407802895718\\
-    \hline
-    4 & 0.405678928295\\
-    \hline
-    5 & 0.40253003193\\
-    \hline
-    6 & 0.415421594014\\
-    \hline
-    7 & 0.408311013086\\
-    \hline
-    8 & 0.402908225812\\
-    \hline
-\end{tabular}
-\end{table}
+\includegraphics[width=\columnwidth, height=3cm,keepaspectratio]{figure/identify_community}
+\caption{Flow Identify Community}
+\label{bidirectional_edge}
+\end{figure}
 
-6 Cluster have best silhouete score, than customer segment divided into 6 segment. Centroid each cluster is used to know characteristic for each cluster formed. Table V show centroid for 6 cluster. 
+\subsubsection{Term Frequency-Inverse Document Frequency}
+TF-IDF stands for "Term Frequency, Inverse Document Frequency". It is a way to score the importance of words (or "terms") in a document based on how frequently they appear across multiple documents \cite{Lan}. TF-IDF contain two value, term frequency \((tf)\) and inverse document frequency \((idf)\), where \(tf\) is number of occurence of term in document and \(idf\) is number of document containing term. Value of \(idf\) follow equation \ref{eq:idf} and equation \ref{eq:tf-idf} shown formula for calculate TF-IDF
 
-\begin{table}[h]
-\renewcommand{\arraystretch}{1.3}
-\caption{Centroid Cluster}
-\label{tab:centroid_cluster}
-\centering
-\begin{tabular}{c|c|c|c}
-    \hline
-    Cluster & Recency & Frequency & Monetary\\
-    \hline
-    1 & 2.15384615 & 1.61538462 & 1.53846154\\
-    \hline
-    2 & 1.2 & 4.8 & 4.86666667\\
-    \hline
-    3 & 4.52941176 & 2.35294118 & 2.52941176\\
-    \hline
-    4 & 2.10526316 & 3.15789474 & 3.21052632\\
-    \hline
-    5 & 3.52941176 & 4.41176471 & 4.29411765\\
-    \hline
-    6 & 4.69230769 & 1.07692308 & 1.07692308\\
-    \hline
-\end{tabular}
-\end{table}
+\begin{equation}
+	\label{eq:idf}
+    idf(t) = \log  \frac{D}{df(t)}
+\end{equation}
 
-\begin{table}[h]
-\renewcommand{\arraystretch}{1.3}
-\caption{Result Customer Segmentation}
-\label{tab:result_all}
-\centering
-\begin{tabular}{c|c|c}
-    \hline
-    ID-Customer & Cluster & Community\\
-    \hline
-    29167 & 5 & 7\\
-    \hline
-    26797 & 2 & 14\\
-    \hline
-    33548 & 2 & 14\\
-    \hline
-    65182 & 2 & 33\\
-    \hline
-\end{tabular}
-\end{table}
-
-In addition to successful classify customers into each segments, there is also relevant information for every member of the community formed segment. Such information can help e-commerce in developing marketing strategies for each segment, because that information can develop more specific strategies.
+\begin{equation}
+	\label{eq:tf-idf}
+    TFxIDF(t,d) = tf(t,d) idf(t,d)
+\end{equation}
 
 
 
-\subsection{Analysis Customer Segment}
+\subsubsection{Term Contribution}
+TC influences the value of word frequency \((tf)\) as a component score. TC score calculate from term frequency (TF) and Inverse Document Frequency (IDF) \cite{Liu}
+
+\begin{equation}
+	\label{eq:TC_score}
+    TC(t) = \Sigma_{i,j \cap i \neq j} f(t,d_{i}) X f(t,d_{j})
+\end{equation}
+
+where \(f(t,d)\) represents the \(tf*idf\) weight of term in document \(d\) whereas \(i\) and \(j\) are document \(i\) document \(j\) and \(i\) not equal \(j\). \(\Sigma f(t,d)\) is sum TF-IDF from term \(t\) in document \(d\)
+
+\subsubsection{Z-Score}
+Assuming that the important words are selected based set of words that have a high score and dominant among other, it can be determined by the difference in distance between score. Z-score calculating a value of the average deviation and density of data \cite{Olga}. This can be made possible as a solution for the elimination or  word removal. This is more flexible and can be used for different datasets. The optimal parameters can be identified at a middle value (zero). Words that have a score greater than zero \((\geq 0)\) is an important word and relevant, otherwise,  the word is not an important word and irrelevant and will be removed.
+
+\begin{equation}
+	\label{eq:Z_score}
+    Z = \frac{x - \bar{x}}{\sigma}
+\end{equation}
+
+\section{Experimental Result}
+As described in the previous section, we will organize the experiment results follows with the step of methodology in the previous section.
+
 By knowing the characteristics of each segment is shown in Table VII and customer segmentation result show on Table VI, the company can provide different treatment to certain customers in the segment. For example in the Loyal Customer Segment, there are some members of that segment is incorporated in the dominant community of its members incorporated herein Profit Customer Segment, so the company can provide different treatment for these customers to be able to increase transactions, thus increasing segment type, of Loyal Customer Segment into Profit Customer Segment.
 
 \begin{table}[h]
@@ -722,30 +583,61 @@ This research attemps to try combine community detection and clustering process 
 
 \begin{thebibliography}{1}
 
-\bibitem{IEEEhowto:Bunnak}
-Bunnak., Thammaboosadee., and Kiattisin, "Applying Data Mining Techniques
-and Extended RFM Model in Customer Loyalty Measurement" Journal of
-Advances in Information Technology Vol. 6, No. 4, November 2015
 
-\bibitem{IEEEhowto:Yihua}
-Zhang Yihua, "Vip Customer Segmentation Based on Data Mining in
-Mobile-communication Industry". IEEE 978-1-4244-6005-2/10, 2010
+\bibitem{Tsiptsis}
+Tsiptsis, K., and Chorianopoulos, A., "Data Mining Techniques in CRM" , Wiley 2009
 
-\bibitem{IEEEhowto:Newman}
+\bibitem{Malliaros}
+Malliaros, F. D., and Vazirgiannis, M., "Clustering and community detection in directed networks: A survey". Physics Reports 2013.
+
+\bibitem{Ahmed}
+Ahmed, R. E., Shehab, M., Morsy, S., and Mekawie, N., "Performance study of classification algorithms for consumer online shopping attitudes and behavior using data mining". 2015 Fifth International Conference on Communication Systems and Network Technologies
+
+\bibitem{Newman}
 M. E. Newman and M. Girvan, "Finding and evaluating
 community structure in networks," Physical Review E,
 vol. 69, no. 2, p. 026113, 2004.
 
-\bibitem{IEEEhowto:Mairisha}
-Mairisha, M, "Integration of Coupling Degree Concept for Calculating Modularity in Quality Analysis of
+\bibitem{Kameyama}
+Kameyama, S., Uchida, M., Shirayama, S., "A New Method for Identifying Detected Communities Based on Graph Substructure" 2007 IEEE/WIC/ACM International Conferences on Web Intelligence and Intelligent Agent Technology
+
+\bibitem{Uchida}
+M. Uchida, N. Shibata and S. Shirayama,"Identification and Visualization of Emerging Trends from Blogosphere", Proceedings of ISWSM, pp. 305-306 (2007)
+
+\bibitem{Mairisha}
+Mairisha, M., "Integration of Coupling Degree Concept for Calculating Modularity in Quality Analysis of
 Community Structure Based on Weighted Graph" Master’s Program Thesis, Institut Teknologi Bandung, 2016
 
-\bibitem{IEEEhowto:Segaran}
-Segaran, T, "Programming Collective Intelligence", O'Reilly Press 2007
+\bibitem{Munggaran}
+Munggaran. M. Rizky., "Identification of Trending Events From News Using Modified K-means Clustering Technique and Term Contribution Technique", Master’s Program Thesis, Institut Teknologi Bandung, 2016
 
-\bibitem{IEEEhowto:Tsiptsis}
-Tsiptsis, K., and Chorianopoulos, A, "Data Mining Techniques in CRM", Wiley 2009
+\bibitem{Dai}
+Dai, Xiangying, och Yunlian Sun. "Event Identification within News Topics ." IEEE ,
+2010: 978-1-4244-6837-9/10.
+
+\bibitem{DaiX}
+Dai, Xiang-Ying, Qing-Cai Chen, Xiao-Long Wang, och Jun Xu. "Online Topic
+Detection And Tracking Of Financial News Based On Hierarchical Clustering ."
+Proceeding of International Conference on Machine Learning and Cybernetics,
+2010: pp. 3341-3346.
+
+\bibitem{Gopalakrishnan}
+Gopalakrishnan, K., Balakrishnan, B., and Jordan, R., "Clusters and Communities in Air Traffic Delay Networks", 2016 American Control Conference (ACC)
+
+\bibitem{Liu}
+Liu, Tao, Shengping Liu, Zheng Chen, och Wei-Ying Ma. "An Evaluation on Feature
+Selection for Text Clustering." Proceedings of the Twentieth International
+Conference on Machine Learning, 2003.
+
+\bibitem{Olga}
+Olga Vechtomova, Stephen Robertson, and Susan Jones, "Query expansion with long-span collocates," Information Retrieval, vol. 6, no. 2, pp. 251-273 , 2003.
+
+\bibitem{Lan}
+Lan, Man, och Chew Lim Tan. "Supervised and Traditional Term Weighting Methods for
+Automatic Text Categorization ." IEEE PAMI, 2007: VOL. 10, NO. 10.
+
 \end{thebibliography}
+
 
 
 
