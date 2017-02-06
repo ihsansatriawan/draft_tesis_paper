@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2016.8.31)  10 SEP 2016 08:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2016.8.31)  6 FEB 2017 17:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -257,15 +257,30 @@ Package pdftex.def Info: figure/identify_community.png used on input line 508.
  [2 <./figure/overall_methodology.png (PNG copy)> <./figure/bidirectional_edge.
 png> <./figure/undirected_edge.png> <./figure/identify_community.png (PNG copy)
 >]
+<figure/graph_awal.png, id=22, 509.905pt x 486.81876pt>
+File: figure/graph_awal.png Graphic file (type png)
+
+<use figure/graph_awal.png>
+Package pdftex.def Info: figure/graph_awal.png used on input line 558.
+(pdftex.def)             Requested size: 149.00461pt x 142.25835pt.
+
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
+<figure/graph_deteksi.png, id=23, 511.9125pt x 506.89375pt>
+File: figure/graph_deteksi.png Graphic file (type png)
+
+<use figure/graph_deteksi.png>
+Package pdftex.def Info: figure/graph_deteksi.png used on input line 590.
+(pdftex.def)             Requested size: 143.6704pt x 142.26187pt.
+ [3 <./figure/graph_awal.png> <./figure/graph_deteksi.png>]
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no ™ in font ptmr7t!
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no ™ in font ptmr7t!
+
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -277,19 +292,19 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[3] (./paper_ihsan.aux)
+[4] (./paper_ihsan.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 2214 strings out of 493105
- 35585 string characters out of 6137072
- 103054 words of memory out of 5000000
- 5674 multiletter control sequences out of 15000+600000
+ 2228 strings out of 493105
+ 35930 string characters out of 6137072
+ 100084 words of memory out of 5000000
+ 5686 multiletter control sequences out of 15000+600000
  35809 words of font info for 65 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
- 37i,7n,23p,767b,217s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 37i,9n,23p,747b,217s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/
@@ -300,10 +315,10 @@ sfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a
 .pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/sha
 re/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on paper_ihsan.pdf (3 pages, 197335 bytes).
+Output written on paper_ihsan.pdf (4 pages, 237220 bytes).
 PDF statistics:
- 60 PDF objects out of 1000 (max. 8388607)
- 39 compressed objects within 1 object stream
+ 65 PDF objects out of 1000 (max. 8388607)
+ 41 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 36 words of extra memory for PDF output out of 10000 (max. 10000000)
 

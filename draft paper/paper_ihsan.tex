@@ -379,7 +379,7 @@ putri[at]informatika.org}}
 
 \begin{abstract}
 %\boldmath
-Customer segmentation become one of  the ways for a company to be able to provide better service to customers. By segmenting customers, company can be more understand behavior of customers. In fact, the approach which has been used to obtain customer segmentation is still inadequate, because the information generated is merely classify customers based on criteria established at the beginning, like the RFM value of every customer. This study proposes an additional process before doing customer segmentation, which is the process of detecting  community formed by interaction between customers. This additional process called a community detection. With this additional processing, customer segmentation is expected to produce better information.
+In business today, it is very important to be able to identify customer behavior, and arrange strategy based that information. In this research, we propose graph modeling, customer community for e-commerce data, and use concept TF-IDF (Term Frequency-Inverse Document Frequency) in text mining domain to identify customer community. In this research, we associate term as product which is bought by customer and document as community or customer. With this approach, we can get information from customer community, where contains typical product from each community. This information can useful for arrange promotion product to customer community.
 \end{abstract}
 % IEEEtran.cls defaults to using nonbold math in the Abstract.
 % This preserves the distinction between vectors and scalars. However,
@@ -389,7 +389,7 @@ Customer segmentation become one of  the ways for a company to be able to provid
 % math in the abstract anyway.
 
 \begin{IEEEkeywords}
-Community Detection, Graph, Community Identification
+Community Detection, Graph, Community Identification, TF-IDF
 \end{IEEEkeywords}
 
 
@@ -420,7 +420,7 @@ E-commerce is one of the sectors in trading which is rapidly growing. Research b
 
 Based on those potential value, no wonder if Indonesia has many E-commerce companies like Tokopedia, Bukalapak, Hijup, MatahaMall, etc. This condition make every company must give better service than other and make their customer satisfied if want to survive. Company must be able to understand their customer behavior when bought product and arrange marketing strategy based on that information \cite{Tsiptsis}.
 
-Data mining is crucial for extracting and identifying useful information from a large amount of data \cite{Ahmed}. E-Commerce company operate databases in a long way, such that all transactions are stored in chronological order. A record-of-transaction database typically contains the transaction date and the products bought in the course of a given transaction. Usually, each record also contains an customer ID, particularly when the purchase was made using a credit card or a frequentbuyer card \cite{Ahmed}.
+Data mining is crucial for extracting and identifying useful information from a large amount of data \cite{Ahmed}. E-Commerce company operate databases in a long way, such that all transactions are stored in chronological order. A record-of-transaction database typically contains the transaction date and the products bought in the course of a given transaction. Usually, each record also contains an customer ID, particularly when the purchase was made using a credit card \cite{Ahmed}.
 
 Networks have become ubiquitous as data from many different disciplines can be naturally mapped to graph structures \cite{Malliaros}. An interesting feature that real networks present is the clustering or community structure property, under which the graph topology is organized into modules commonly called community detection. Informally, Community detection is to partition the set of network nodes into multiple groups such that the nodes within a group are connected densely, but connections between groups are sparse \cite{Malliaros}
 
@@ -501,7 +501,7 @@ To decide how much community divide in networks, measure of quality of divide in
 
 Good community detection on graph have big modularity score, otherwise poor community detection have small modularity score. Modularity score calculate on every create new community. If formed x community, than there is x modularity score. The number of communities that have the highest modularity score indicates the formation of the community in accordance with the actual reality.
 \subsection{Identify Community}
-Inspired from use TF-IDF to summarization document and TC and Z-score as feature reduction in domain text mining \cite{Munggaran}, we apply this concept to identify customer community. In our case, we associate term as product and document as community and customer.
+Inspired from use TF-IDF to summarization document and TC and Z-score as feature reduction in domain text mining \cite{Munggaran}, we apply this concept to identify customer community. In our case, we associate term as product which is bought by customer and document as community or customer.
 
 \begin{figure}[h]
 \centering
@@ -511,7 +511,7 @@ Inspired from use TF-IDF to summarization document and TC and Z-score as feature
 \end{figure}
 
 \subsubsection{Term Frequency-Inverse Document Frequency}
-TF-IDF stands for "Term Frequency, Inverse Document Frequency". It is a way to score the importance of words (or "terms") in a document based on how frequently they appear across multiple documents \cite{Lan}. TF-IDF contain two value, term frequency \((tf)\) and inverse document frequency \((idf)\), where \(tf\) is number of occurence of term in document and \(idf\) is number of document containing term. Value of \(idf\) follow equation \ref{eq:idf} and equation \ref{eq:tf-idf} shown formula for calculate TF-IDF
+TF-IDF stands for "Term Frequency, Inverse Document Frequency". It is a way to score the importance of words (or "terms") in a document based on how frequently they appear across multiple documents \cite{Lan}. TF-IDF contain two value, term frequency \((tf)\) and inverse document frequency \((idf)\), where \(tf\) is number of occurence of term in document (in our case, number of occurance of product bought in community or customer) and \(idf\) is number of document containing term (in our case, number of community or customer bought product). Value of \(idf\) follow equation \ref{eq:idf} and equation \ref{eq:tf-idf} shown formula for calculate TF-IDF.
 
 \begin{equation}
 	\label{eq:idf}
@@ -535,7 +535,7 @@ TC influences the value of word frequency \((tf)\) as a component score. TC scor
 
 where \(f(t,d)\) represents the \(tf*idf\) weight of term in document \(d\) whereas \(i\) and \(j\) are document \(i\) document \(j\) and \(i\) not equal \(j\). \(\Sigma f(t,d)\) is sum TF-IDF from term \(t\) in document \(d\)
 
-\subsubsection{Z-Score}
+\subsubsection{Z-score}
 Assuming that the important words are selected based set of words that have a high score and dominant among other, it can be determined by the difference in distance between score. Z-score calculating a value of the average deviation and density of data \cite{Olga}. This can be made possible as a solution for the elimination or  word removal. This is more flexible and can be used for different datasets. The optimal parameters can be identified at a middle value (zero). Words that have a score greater than zero \((\geq 0)\) is an important word and relevant, otherwise,  the word is not an important word and irrelevant and will be removed.
 
 \begin{equation}
@@ -546,36 +546,79 @@ Assuming that the important words are selected based set of words that have a hi
 \section{Experimental Result}
 As described in the previous section, we will organize the experiment results follows with the step of methodology in the previous section.
 
-By knowing the characteristics of each segment is shown in Table VII and customer segmentation result show on Table VI, the company can provide different treatment to certain customers in the segment. For example in the Loyal Customer Segment, there are some members of that segment is incorporated in the dominant community of its members incorporated herein Profit Customer Segment, so the company can provide different treatment for these customers to be able to increase transactions, thus increasing segment type, of Loyal Customer Segment into Profit Customer Segment.
+\subsection{Data Preprocessing}
+This research used database from one e-commerce mus-limah in Indonesia for last 1 years (2015-2016). After making a selection of data, the records which include missing values and inaccurate values are removed, and eliminated the redundant attributes. The dataset contains 88,103 records data interaction and 178,276 records data transaction. Data interaction is interaction customer to customer for transfer point reward.
+
+
+\subsection{Graph Modeling}
+We build graph object with node is set of customer and undirected edge is interaction each customer with mean frequency interaction between customer as the edge weight. Generated graph is visualize as show in Fig \ref{Graph_customer_interaction}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\columnwidth, height=5cm,keepaspectratio]{figure/graph_awal}
+\caption{Flow Identify Community}
+\label{Graph_customer_interaction}
+\end{figure}
+
+\subsection{Community Detection}
+For each community detection process iteration, modularity score become quality measure. Table \ref{tab:modularity_score} show modularity score for each number of community formed. Because 42 community have highest modularity score, than graph divide into 42 subgraph or community. Fig \ref{graph_community_detection} show graph result community detection. We used community library, a Python implementation of Girvan-Newman community detection algorithm for weighted graphs \cite{Community}
 
 \begin{table}[h]
 \renewcommand{\arraystretch}{1.3}
-\caption{Character Segment}
-\label{tab:Character_segment}
+\caption{Modularity Score}
+\label{tab:modularity_score}
 \centering
-\begin{tabular}{c|c|c|c|c}
+\begin{tabular}{c|c}
     \hline
-    Cluster & Recency & Frequency & Monetary & Description\\
+    Modularity Score  &  Number of Communities\\
     \hline
-    1 & Low & Low & Low & New Customer\\
+    0.732606 & 42\\
     \hline
-    2 & Low & High & High & Profit Customer\\
+    0.701448 & 46\\
     \hline
-    3 & High & Low & Low & Churn Customer\\
+    0.641020 & 50\\
     \hline
-    4 & Low & Medium & Medium & Loyal Customer\\
+    0.447219 & 61\\
     \hline
-    5 & Medium & High & High & Profit Customer\\
-    \hline
-    6 & High & Low & Low & Churn Customer\\
+    0.428557 & 62\\
     \hline
 \end{tabular}
 \end{table}
 
+\begin{figure}[h]
+\centering
+\includegraphics[width=\columnwidth, height=5cm,keepaspectratio]{figure/graph_deteksi}
+\caption{Graph Result Community Detection}
+\label{graph_community_detection}
+\end{figure}
+
+\subsection{Identify Community}
+First, we apply equation \ref{eq:tf-idf} to our graph data, where in our case product bought frequency as word frequency \((tf)\) and number of community or customer bought product as number of document containing term \((idf)\), after that we calculate TC score follow equation \ref{eq:TC_score} for each product bought in every community, and then calculate Z-score to removed not an importand product.
+
+There are 15,413 distinct product bought on all community, to simplify, we use Z-score to remove not an importand product. Based on product with z-score more than 0, there are remain 1,075 distinct product to process in next step. After that we calculate TC score for each community, and get product with highest TC score . Table \ref{tab:result_identify_community} show result 3 community with their characteristic product.
+
+\begin{table}[h]
+\renewcommand{\arraystretch}{1.3}
+\caption{Characteristic Product Community}
+\label{tab:result_identify_community}
+\centering
+\begin{tabular}{|c|p{6cm}|p{1cm}|}
+    \hline
+    Community  &  Characteristic Product\\
+    \hline
+    40 & 'Casablanca Outer', 'Asuka Tunik', 'Maldives Top'\\
+    \hline
+    32 & 'Pearl Glamour Peafowl', 'Inner Zipper Reguler', 'Slimface Inner', 'Daster Tetron Batik', 'Nuna Turbular'\\
+    \hline
+    6 & 'Alana Shawl', 'Inner Zipper Reguler', 'Grisy Sweatshirt', 'Sam Shawl', 'Laiqa Magazine Vol 25'\\
+    \hline
+\end{tabular}
+\end{table}
+
+
+
 \section{Conclusion}
-This research attemps to try combine community detection and clustering process applying to customer segmentation. This research take RFM model and K-Means Clustering, and use GN algorithm for community detection then the result can be identified characteristics each segment with knowledge about community each segment. It is useful for company to develope specific strategic marketing.
-
-
+This research attemps to try identify customer community in graph customer e-commerce. We use Girvan-Newman algotihm for community detecton. Community detection result can identified using concept TF-IDF in text mining and to improve identify, we apply feature reduction with Z-score. The result is with apply TF-IDF in graph customer e-commerce, we can get characteristic product in each community. It can support marketing to arrange promotion product to each community.
 
 
 % conference papers do not normally have an appendix
@@ -628,6 +671,9 @@ Gopalakrishnan, K., Balakrishnan, B., and Jordan, R., "Clusters and Communities 
 Liu, Tao, Shengping Liu, Zheng Chen, och Wei-Ying Ma. "An Evaluation on Feature
 Selection for Text Clustering." Proceedings of the Twentieth International
 Conference on Machine Learning, 2003.
+
+\bibitem{Community}
+Jahanbakhsh, K. (2016, April). A Python implementation of Girvan-Newman community detection algorithm for weighted graphs. Retrieved July 10, 2016, from https://github.com/kjahan/community/
 
 \bibitem{Olga}
 Olga Vechtomova, Stephen Robertson, and Susan Jones, "Query expansion with long-span collocates," Information Retrieval, vol. 6, no. 2, pp. 251-273 , 2003.
